@@ -8,6 +8,8 @@ services:
       - ./envs/dev.env
     volumes:
       - ./backend:/backend
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:latest
