@@ -1,22 +1,33 @@
+x-postgres-environment: &postgres-environment
+  POSTGRES_DB:
+  POSTGRES_HOST:
+  POSTGRES_PORT:
+  POSTGRES_USER:
+  POSTGRES_PASSWORD:
+
+x-django-environment: &django-environment
+  DJANGO_DEBUG:
+
 services:
   backend:
     image: registry.gitlab.propulsion-home.ch/full-stack/batch-30-nov-2024/motion-backend-assignment/motion-project-grp2:master
+    environment:
+      <<:
+        - *django-environment
+        - *postgres-environment
     ports:
       - "8000:8000"
-    command: "tail -f /dev/null" # Keeps the container running
-    env_file:
-      - ./envs/dev.env
+    command: "sh /scripts/prod.sh " # Keeps the container running
     volumes:
       - ./backend:/backend
-    depends_on:
-      - postgres
 
   postgres:
     image: postgres:latest
+    environment:
+      <<:
+        - *postgres-environment
     ports:
       - "5432:5432"
-    env_file:
-      - ./envs/dev.env
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
