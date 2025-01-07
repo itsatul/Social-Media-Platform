@@ -10,3 +10,4 @@ dependencies:
       - djangorestframework_simplejwt==5.3.1
       - drf-yasg==1.21.8
       - flake8
+      - gunicorn
