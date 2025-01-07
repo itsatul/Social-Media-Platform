@@ -1,6 +1,6 @@
 services:
   backend:
-    image: registry.gitlab.propulsion-home.ch/full-stack/batch-30-nov-2024/motion-backend-assignment/motion-project-grp2:latest
+    image: registry.gitlab.propulsion-home.ch/registry.gitlab.propulsion-home.ch/full-stack/batch-30-nov-2024/motion-backend-assignment/motion-project-grp2:latest
     ports:
       - "8000:8000"
     command: "tail -f /dev/null" # Keeps the container running
