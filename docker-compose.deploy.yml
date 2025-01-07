@@ -6,7 +6,7 @@ x-postgres-environment: &postgres-environment
   POSTGRES_PASSWORD:
 
 x-django-environment: &django-environment
-  DJANGO_DEBUG: "True"
+  DJANGO_DEBUG:
 
 services:
   backend:
