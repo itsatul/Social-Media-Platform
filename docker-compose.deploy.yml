@@ -1,0 +1,22 @@
+services:
+  backend:
+    image: registry.gitlab.propulsion-home.ch/registry.gitlab.propulsion-home.ch/full-stack/batch-30-nov-2024/motion-backend-assignment/motion-project-grp2:master
+    ports:
+      - "8000:8000"
+    command: "tail -f /dev/null" # Keeps the container running
+    env_file:
+      - ./envs/dev.env
+    volumes:
+      - ./backend:/backend
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./envs/dev.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
