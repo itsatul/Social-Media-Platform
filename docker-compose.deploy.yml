@@ -1,13 +1,13 @@
-x-postgres-environment: &postgres-environment
-  POSTGRES_DB:
-  POSTGRES_HOST:
-  POSTGRES_PORT:
-  POSTGRES_USER:
-  POSTGRES_PASSWORD:
-
-x-django-environment: &django-environment
-  DJANGO_DEBUG:
-
+#x-postgres-environment: &postgres-environment
+#  POSTGRES_DB:
+#  POSTGRES_HOST:
+#  POSTGRES_PORT:
+#  POSTGRES_USER:
+#  POSTGRES_PASSWORD:
+#
+#x-django-environment: &django-environment
+#  DJANGO_DEBUG:
+#
 services:
   backend:
     image: registry.gitlab.propulsion-home.ch/full-stack/batch-30-nov-2024/motion-backend-assignment/motion-project-grp2:master
