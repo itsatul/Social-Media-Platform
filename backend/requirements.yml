@@ -1,0 +1,12 @@
+name: motion-project
+
+dependencies:
+  - python=3.12.5
+  - pip=24.2
+  - psycopg2=2.9.9
+  - pip:
+      - django==5.1.4
+      - djangorestframework==3.15.2
+      - djangorestframework_simplejwt==5.3.1
+      - drf-yasg==1.21.8
+      - flake8

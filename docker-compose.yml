@@ -1,0 +1,22 @@
+services:
+  backend:
+    image: motion-project:latest
+    ports:
+      - "8000:8000"
+    command: "tail -f /dev/null" # Keeps the container running
+    env_file:
+      - ./envs/dev.env
+    volumes:
+      - ./backend:/backend
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./envs/dev.env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
