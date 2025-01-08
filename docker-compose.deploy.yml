@@ -39,6 +39,7 @@ services:
       - media_files:/media-files
       - ./nginx:/etc/nginx/conf.d/
       - frontend_build:/frontend-build
+      - /etc/letsencrypt:/etc/letsencrypt
 
 volumes:
   postgres_data:

@@ -24,9 +24,12 @@ SECRET_KEY = "django-insecure-0q$3%jfnjsj1-&)4r96p(p+n5@lfc_a-0#+3s65v^$v1p$s2(3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['64.226.88.183', 'localhost', '127.0.0.1', 'backend']
+ALLOWED_HOSTS = ['64.226.88.183', 'localhost', '127.0.0.1', 'backend', 'motion-25.propulsion-learn.ch']
 
-CSRF_TRUSTED_ORIGINS = ['http://64.226.88.183']
+CSRF_TRUSTED_ORIGINS = [
+    'https://motion-25.propulsion-learn.ch'
+    'http://64.226.88.183'
+]
 
 # Application definition
 
