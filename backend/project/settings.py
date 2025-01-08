@@ -27,7 +27,7 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True') == 'True'
 ALLOWED_HOSTS = ['64.226.88.183', 'localhost', '127.0.0.1', 'backend', 'motion-25.propulsion-learn.ch']
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://motion-25.propulsion-learn.ch'
+    'https://motion-25.propulsion-learn.ch',
     'http://64.226.88.183'
 ]
 
