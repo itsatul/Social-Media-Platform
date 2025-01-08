@@ -19,7 +19,8 @@ services:
       - "8000:8000"
     command: "sh /scripts/prod.sh " # Keeps the container running
     volumes:
-      - ./backend:/backend
+      - static_files:/static-files
+      - media_files:/media-files
 
   postgres:
     image: postgres:latest
@@ -29,9 +30,16 @@ services:
     ports:
       - "5432:5432"
 
-
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+      - '443:443'
+
 volumes:
   postgres_data:
+  static_files:
+  media_files:
