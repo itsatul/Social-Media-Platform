@@ -19,6 +19,7 @@ services:
     volumes:
       - static_files:/static-files
       - media_files:/media-files
+      - frontend_build:/frontend/dist
 
   postgres:
     image: postgres:latest
@@ -37,8 +38,10 @@ services:
       - static_files:/static-files
       - media_files:/media-files
       - ./nginx:/etc/nginx/conf.d/
+      - frontend_build:/frontend-build
 
 volumes:
   postgres_data:
   static_files:
   media_files:
+  frontend_build:
