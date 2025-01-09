@@ -1,3 +1,5 @@
-python manage.py collectstatic --no-input
+# i hope its unix
+python manage.py collectstatic --noinput
 python manage.py migrate
-gunicorn -w 4 -b 0.0.0.0:8000 project.wsgi:application
+gunicorn --access-logfile - --error-logfile - -w 4 -b 0.0.0.0:8000 project.wsgi:application
+
