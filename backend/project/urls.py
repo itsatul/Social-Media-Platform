@@ -20,11 +20,27 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-from comment.models import Comment
 from project import settings
+from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
-    path("backend/admin/", admin.site.urls),
+    # TIARAS
+    path('backend/admin/', admin.site.urls),
+
+    path('backend/api/', include([
+
+        path('auth/', include([
+            path('token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+            path('token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+            path('token/verify/', jwt_views.TokenVerifyView.as_view(), name='token_verify')
+        ])),
+
+        path('users/', include('user.urls')),
+
+        path('social/', include('follow.urls')),
+    ])),
+
+    # JONS
     path('backend/comment/', include('comment.urls') ),
     path('backend/friend_request/', include('friend_request.urls')),
 ]
