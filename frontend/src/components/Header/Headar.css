@@ -1,0 +1,40 @@
+.Naviess {
+    display: flex;
+    gap: 1rem;
+}
+
+.aaa {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 11rem;
+    height: 4rem;
+    top: 3rem;
+    right: 1.6rem;
+    background-color: white;
+    z-index: 9;
+}
+
+.aaa div button {
+    all: unset;
+    background-color: none;
+    flex-grow: 1;
+    color: black;
+}
+
+.aaa div {
+    position: relative;
+    display: flex;
+    height: 2rem;
+    gap: 1rem;
+    padding-left: 1rem;
+}
+
+.aaa div img {
+    /* height: 1rem;
+    width: 1rem; */
+}
+
+.aaa button:hover {
+    background-color: whitesmoke;
+}

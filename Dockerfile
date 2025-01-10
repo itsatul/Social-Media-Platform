@@ -27,10 +27,10 @@ WORKDIR /frontend
 COPY ./frontend/package.json /frontend/package.json
 COPY ./frontend/package-lock.json /frontend/package-lock.json
 
-RUN npm install
+#docker RUN npm install
 
 COPY ./frontend /frontend
-RUN npm run build
+#RUN npm run build
 
 COPY ./backend /backend
 
