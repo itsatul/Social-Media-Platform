@@ -12,11 +12,10 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Comment',
+            name='Follow',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('comment_content', models.TextField()),
-                ('comment_created', models.DateTimeField(auto_now_add=True)),
+                ('followed_at', models.DateTimeField(auto_now_add=True)),
             ],
         ),
     ]
