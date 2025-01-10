@@ -11,7 +11,7 @@ class CustomUserAdmin(UserAdmin):
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'username', 'password1', 'password2')}
+            'fields': ('email', 'username')}
          ),
     )
     # fields when reading / updating an instance
@@ -22,8 +22,8 @@ class CustomUserAdmin(UserAdmin):
         ('Important dates', {'fields': ('last_login', 'date_joined')}),
         ('Groups', {'fields': ('groups',)}),
     )
-    # fields which are shown when looking at a list of instances
-    list_display = ('email', 'first_name', 'last_name', 'is_staff')
+    # fields which are shown when looking at admin panel -> Users
+    list_display = ('email', 'username', 'first_name', 'last_name', 'is_staff')
     ordering = ('email',)
 
 

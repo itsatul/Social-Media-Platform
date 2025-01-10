@@ -9,7 +9,13 @@ User = get_user_model()
 
 # Create your views here.
 class ListCreatePostView(ListCreateAPIView):
-    queryset = Post.objects.all()
+    def get_queryset(self):
+        user_id = self.kwargs.get('pk')
+        if user_id is not None:
+            return Post.objects.filter(user__id=user_id)
+        else:
+            return Post.objects.all()
+
     serializer_class = PostSerializer
 
     def get(self, request, *args, **kwargs):
