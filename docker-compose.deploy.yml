@@ -20,6 +20,8 @@ services:
       - static_files:/static-files
       - media_files:/media-files
       - frontend_build:/frontend/dist
+    depends_on:
+      - postgres
 
   postgres:
     image: postgres:latest
