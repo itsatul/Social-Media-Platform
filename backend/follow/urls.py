@@ -1,5 +1,4 @@
 from django.urls import path, include
-from follow import views
 from follow.views import FollowUserView, FollowerView, FollowingView
 
 urlpatterns = [

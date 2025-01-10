@@ -1,7 +1,9 @@
-from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from rest_framework import serializers
+
 User = get_user_model()
 from follow.models import Follow
+
 
 class FollowSerializer(serializers.ModelSerializer):
     # accessing username of user being followed
@@ -11,6 +13,7 @@ class FollowSerializer(serializers.ModelSerializer):
     class Meta:
         model = Follow
         fields = ['following_username', 'follower_username']
+
 
 class UserSerializer(serializers.ModelSerializer):
     """
@@ -24,7 +27,8 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'phone_number', 'location', 'about', 'created_at', 'is_active', 'following_relationships', 'follower_relationships']
+        fields = ['id', 'username', 'email', 'first_name', 'last_name', 'phone_number', 'location', 'about',
+                  'created_at', 'is_active', 'following_relationships', 'follower_relationships']
         # fields = ['username', 'email', 'phone_number', 'location', 'about', 'created_at']
 
     def get_following_relationships(self, obj):

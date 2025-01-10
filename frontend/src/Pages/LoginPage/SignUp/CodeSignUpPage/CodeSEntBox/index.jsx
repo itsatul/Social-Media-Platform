@@ -1,12 +1,11 @@
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import styled from "styled-components";
-import { LoginrightBoxStyled } from "../../../Login/style/RightBox";
-import BotPartResetPassowordCodeSentRightBox from "../../../ForgetPasswordPage/CodeSentPage/CodeSEntBox/BotcodeSentBox";
+import {LoginrightBoxStyled} from "../../../Login/style/RightBox";
 import SignUpCodeSentRightBox from "./BotcodeSentBox";
 
 
 export default function SignUPCodeSentRightBox() {
-  const CodeSentDivStyled = styled.div`
+    const CodeSentDivStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,20 +31,20 @@ export default function SignUPCodeSentRightBox() {
     }
   `;
 
-  const email=useSelector(state=> state.user.email);
+    const email = useSelector(state => state.user.email);
 
-  
-  return (
-    <LoginrightBoxStyled>
-      <CodeSentDivStyled>
-        <h1>{document.URL.endsWith("SUcode")?'Congratulations!': "code sent!"}</h1>
-        <img src="src\assets\svgs\check-mark.png" alt="" />
-        <div>
-          <p>{document.URL.endsWith("SUcode")?'We’ve sent a confirmation code to your email': "We’ve sent a reset code to your email"} </p>
-          <p>{email}</p>
-        </div>
-      </CodeSentDivStyled>
-      <SignUpCodeSentRightBox />
-    </LoginrightBoxStyled>
-  );
+
+    return (
+        <LoginrightBoxStyled>
+            <CodeSentDivStyled>
+                <h1>{document.URL.endsWith("SUcode") ? 'Congratulations!' : "code sent!"}</h1>
+                <img src="src\assets\svgs\check-mark.png" alt=""/>
+                <div>
+                    <p>{document.URL.endsWith("SUcode") ? 'We’ve sent a confirmation code to your email' : "We’ve sent a reset code to your email"} </p>
+                    <p>{email}</p>
+                </div>
+            </CodeSentDivStyled>
+            <SignUpCodeSentRightBox/>
+        </LoginrightBoxStyled>
+    );
 }

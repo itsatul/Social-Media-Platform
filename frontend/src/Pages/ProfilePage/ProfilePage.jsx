@@ -2,11 +2,8 @@ import styled from "styled-components";
 import img from "./assets/bg-profile-page.png";
 import ProfileCard from "../../components/ProfilePage/ProfileCard";
 import EditProfile from "../../components/ProfilePage/EditMode";
-import { useState } from "react";
-import { CardFlipProvider } from "../../components/ProfilePage/CardFlipProvider";
-import { useCardFlip } from "../../components/ProfilePage/CardFlipProvider";
+import {CardFlipProvider, useCardFlip} from "../../components/ProfilePage/CardFlipProvider";
 import ReactCardFlip from "react-card-flip";
-import FriendCard from "../../components/Friendcard/FriendCard";
 
 const WrapperProfilePage = styled.div`
     width: 100%;
@@ -35,7 +32,7 @@ const WrapperProfilePage = styled.div`
 `;
 
 const ProfilePageContent = () => {
-    const { isFlipped } = useCardFlip();
+    const {isFlipped} = useCardFlip();
 
     return (
         <WrapperProfilePage>
@@ -55,7 +52,7 @@ const ProfilePageContent = () => {
 export default function ProfilePage() {
     return (
         <CardFlipProvider>
-            <ProfilePageContent />
+            <ProfilePageContent/>
         </CardFlipProvider>
     );
 }

@@ -1,8 +1,8 @@
-import { createContext, useContext, useState } from "react";
+import {createContext, useContext, useState} from "react";
 
 const CardFlipContext = createContext();
 
-export const CardFlipProvider = ({ children }) => {
+export const CardFlipProvider = ({children}) => {
     const [isFlipped, setIsFlipped] = useState(false);
 
     const flipCard = () => {
@@ -10,7 +10,7 @@ export const CardFlipProvider = ({ children }) => {
     };
 
     return (
-        <CardFlipContext.Provider value={{ isFlipped, flipCard }}>
+        <CardFlipContext.Provider value={{isFlipped, flipCard}}>
             {children}
         </CardFlipContext.Provider>
     );

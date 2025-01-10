@@ -1,5 +1,5 @@
 // ---------- IMPORTS ----------
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const fetchUserData = createAsyncThunk(
@@ -27,7 +27,7 @@ export const fetchUserData = createAsyncThunk(
 export const updateUserData = createAsyncThunk(
     // update user data with api call
     "userData/updateUserData",
-    async (updatedUserData, { dispatch, rejectWithValue }) => {
+    async (updatedUserData, {dispatch, rejectWithValue}) => {
         const token = window.localStorage.getItem("accessToken");
 
         try {

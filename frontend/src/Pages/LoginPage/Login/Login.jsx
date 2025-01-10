@@ -1,13 +1,11 @@
-import styled from "styled-components";
 import LoginLeftBox from "./LoginLeftPart/LoginLeft";
 import LoginRightBox from "./LoginRightPart/LoginRight";
-import { LoginPageStyled } from "./style/Login";
+import {LoginPageStyled} from "./style/Login";
 
-export default function LoginPage (){
+export default function LoginPage() {
 
 
-
-    return(
+    return (
         //hi
         <LoginPageStyled>
             <LoginLeftBox/>

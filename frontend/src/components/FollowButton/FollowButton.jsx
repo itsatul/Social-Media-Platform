@@ -15,9 +15,9 @@ const FollowButton = styled.button`
 }
 
   /* Dynamic styles based on the isFollowing prop */
-  background: ${({ isFollowing }) =>
-    isFollowing ? "linear-gradient(102deg, #c468ff, #6e91f6)": "none"};
-  color: ${({ isFollowing }) => isFollowing && "white"};
+  background: ${({isFollowing}) =>
+    isFollowing ? "linear-gradient(102deg, #c468ff, #6e91f6)" : "none"};
+  color: ${({isFollowing}) => isFollowing && "white"};
 `;
 
 export default FollowButton;

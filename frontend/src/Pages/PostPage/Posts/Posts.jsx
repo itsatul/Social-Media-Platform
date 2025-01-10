@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { setPosts } from "../../../store/slice/postSlice";
+import React, {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {setPosts} from "../../../store/slice/postSlice";
 import axios from "axios";
 import styled from "styled-components";
 import PostDetail from "../PostDetail/PostDetail";
@@ -110,95 +110,95 @@ const PostActions = styled.div`
 
 // Component
 export default function Posts() {
-  const dispatch = useDispatch()
-  const posts = useSelector((state) => state.post.posts)
-  const [loadingError, setLoadingError] = useState(false)
-  const [selectedPost, setSelectedPost] = useState(null)
-  const token = localStorage.getItem("accessToken")
+    const dispatch = useDispatch()
+    const posts = useSelector((state) => state.post.posts)
+    const [loadingError, setLoadingError] = useState(false)
+    const [selectedPost, setSelectedPost] = useState(null)
+    const token = localStorage.getItem("accessToken")
 
-  const fetchPosts = async () => {
-    console.log("Fetching posts...");
-    setLoadingError(false);
+    const fetchPosts = async () => {
+        console.log("Fetching posts...");
+        setLoadingError(false);
 
-    try {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const response = await axios.get(
-        "https://motion.propulsion-home.ch/backend/api/social/posts/",
-        config
-      );
-      console.log("full response", response.data);
-      dispatch(setPosts(response.data.results));
-    } catch (error) {
-      console.error("Error fetching posts:", error);
-      setLoadingError(true);
+        try {
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
+            const response = await axios.get(
+                "https://motion.propulsion-home.ch/backend/api/social/posts/",
+                config
+            );
+            console.log("full response", response.data);
+            dispatch(setPosts(response.data.results));
+        } catch (error) {
+            console.error("Error fetching posts:", error);
+            setLoadingError(true);
+        }
+    };
+
+    useEffect(() => {
+        console.log("Calling fetchPosts...");
+        fetchPosts();
+    }, []);
+
+    const handlePostClick = (post) => {
+        setSelectedPost(post);
+    };
+
+    const handleBack = () => {
+        setSelectedPost(null); // Reset selected post to show the list again
+    };
+
+    if (loadingError) {
+        return <div>Error loading posts. Please try again later.</div>;
     }
-  };
 
-  useEffect(() => {
-    console.log("Calling fetchPosts...");
-    fetchPosts();
-  }, []);
-
-  const handlePostClick = (post) => {
-    setSelectedPost(post);
-  };
-
-  const handleBack = () => {
-    setSelectedPost(null); // Reset selected post to show the list again
-  };
-
-  if (loadingError) {
-    return <div>Error loading posts. Please try again later.</div>;
-  }
-
-  return (
-    <div>
-      {selectedPost ? (
-        <PostDetail post={selectedPost} onBack={handleBack} />
-      ) : posts.length === 0 ? (
-        <p>No posts available.</p>
-      ) : (
-        <PostsContainer>
-          {posts.map((post) => (
-            <PostContainer key={post.id} onClick={() => handlePostClick(post)}>
-              <PostHeader>
-                <img
-                  src={post.user.profile_picture}
-                  alt={`${post.user.first_name} ${post.user.last_name}`}
-                />
-                <div className="post-user-info">
-                  <p className="post-user-name">
-                    {post.user.first_name} {post.user.last_name}
-                  </p>
-                  <p className="post-date">{post.created}</p>
-                </div>
-              </PostHeader>
-              {post.images && post.images.length > 0 && (
-                <PostImageContainer>
-                  <img
-                    src={post.images[0].image}
-                    alt={`Post by ${post.user.first_name}`}
-                  />
-                </PostImageContainer>
-              )}
-              <PostContent>{post.content}</PostContent>
-              <PostActions>
-                <div className="actions-left">
-                  <img src={Heart}/>
-                  <button>Like</button>
-                  <img src={Share}/>
-                  <button>Share</button>
-                </div>
-                <div className="likes">{post.likes}3 likes</div>
-              </PostActions>
-            </PostContainer>
-          ))}
-        </PostsContainer>
-      )}
-    </div>
-  );
+    return (
+        <div>
+            {selectedPost ? (
+                <PostDetail post={selectedPost} onBack={handleBack}/>
+            ) : posts.length === 0 ? (
+                <p>No posts available.</p>
+            ) : (
+                <PostsContainer>
+                    {posts.map((post) => (
+                        <PostContainer key={post.id} onClick={() => handlePostClick(post)}>
+                            <PostHeader>
+                                <img
+                                    src={post.user.profile_picture}
+                                    alt={`${post.user.first_name} ${post.user.last_name}`}
+                                />
+                                <div className="post-user-info">
+                                    <p className="post-user-name">
+                                        {post.user.first_name} {post.user.last_name}
+                                    </p>
+                                    <p className="post-date">{post.created}</p>
+                                </div>
+                            </PostHeader>
+                            {post.images && post.images.length > 0 && (
+                                <PostImageContainer>
+                                    <img
+                                        src={post.images[0].image}
+                                        alt={`Post by ${post.user.first_name}`}
+                                    />
+                                </PostImageContainer>
+                            )}
+                            <PostContent>{post.content}</PostContent>
+                            <PostActions>
+                                <div className="actions-left">
+                                    <img src={Heart}/>
+                                    <button>Like</button>
+                                    <img src={Share}/>
+                                    <button>Share</button>
+                                </div>
+                                <div className="likes">{post.likes}3 likes</div>
+                            </PostActions>
+                        </PostContainer>
+                    ))}
+                </PostsContainer>
+            )}
+        </div>
+    );
 }

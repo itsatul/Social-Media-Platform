@@ -1,12 +1,10 @@
 import styled from "styled-components";
-import { LoginrightBoxStyled } from "../../../Login/style/RightBox";
-import BotPartResetPassowordRightBox from "../../ForgetPasswordPage/passwordBotPart";
+import {LoginrightBoxStyled} from "../../../Login/style/RightBox";
 import BotPartResetPassowordCodeSentRightBox from "./BotcodeSentBox";
-import ForgetPasswordRightBox from "../../ForgetPasswordPage";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 
 export default function ForgetPasswordCodeSentRightBox() {
-  const CodeSentDivStyled = styled.div`
+    const CodeSentDivStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -32,20 +30,20 @@ export default function ForgetPasswordCodeSentRightBox() {
     }
   `;
 
-  const email=useSelector(state=> state.user.email);
+    const email = useSelector(state => state.user.email);
 
-  
-  return (
-    <LoginrightBoxStyled>
-      <CodeSentDivStyled>
-        <h1>Code sent!</h1>
-        <img src="src\assets\svgs\check-mark.png" alt="" />
-        <div>
-          <p>We’ve sent a reset code to your email </p>
-          <p>{email}</p>
-        </div>
-      </CodeSentDivStyled>
-      <BotPartResetPassowordCodeSentRightBox />
-    </LoginrightBoxStyled>
-  );
+
+    return (
+        <LoginrightBoxStyled>
+            <CodeSentDivStyled>
+                <h1>Code sent!</h1>
+                <img src="src\assets\svgs\check-mark.png" alt=""/>
+                <div>
+                    <p>We’ve sent a reset code to your email </p>
+                    <p>{email}</p>
+                </div>
+            </CodeSentDivStyled>
+            <BotPartResetPassowordCodeSentRightBox/>
+        </LoginrightBoxStyled>
+    );
 }

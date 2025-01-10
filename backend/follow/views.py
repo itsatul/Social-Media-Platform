@@ -1,14 +1,13 @@
-from django.shortcuts import get_object_or_404, redirect
+from django.contrib.auth import get_user_model
+from django.shortcuts import get_object_or_404
+from follow.models import Follow
+from follow.serializers import FollowerSerializer, FollowingSerializer
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView
-from rest_framework.permissions import SAFE_METHODS, AllowAny, IsAdminUser, IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from follow.models import Follow
-from follow.serializers import FollowSerializer, FollowerSerializer, FollowingSerializer
-
-from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
@@ -54,6 +53,7 @@ class FollowerView(ListCreateAPIView):
         followers = Follow.objects.filter(following=self.request.user)
         print(followers)
         return followers
+
 
 # /followers/following/ endpoint, get all following of the active user
 class FollowingView(ListCreateAPIView):

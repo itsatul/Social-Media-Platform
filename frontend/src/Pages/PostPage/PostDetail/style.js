@@ -1,9 +1,7 @@
 import styled from "styled-components";
 
 
-
-
-export const Div = styled.div `
+export const Div = styled.div`
 display: flex;
 
 width: 100vw;

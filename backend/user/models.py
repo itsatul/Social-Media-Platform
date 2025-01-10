@@ -1,12 +1,13 @@
 from django.contrib.auth.models import AbstractUser
 from django.core.exceptions import ValidationError
-from django.core.validators import FileExtensionValidator
 from django.db import models
+
 
 def validate_image_size(image):
     max_size = 2 * 1024 * 1024  # 2 MB
     if image.size > max_size:
         raise ValidationError("The maximum file size that can be uploaded is 2MB.")
+
 
 # Create your models here.
 class User(AbstractUser):

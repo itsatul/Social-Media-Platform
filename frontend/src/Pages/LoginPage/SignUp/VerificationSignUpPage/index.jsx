@@ -1,12 +1,11 @@
 import LoginLeftBox from "../../Login/LoginLeftPart/LoginLeft";
-import { LoginPageStyled } from "../../Login/style/Login";
+import {LoginPageStyled} from "../../Login/style/Login";
 import SignUPVerificationRightBox from "./VerificationRightBox";
 
 
+export default function SignUpVerificaitonPage() {
 
-export default function SignUpVerificaitonPage (){
-
-    return(
+    return (
         <LoginPageStyled>
             <LoginLeftBox/>
             <SignUPVerificationRightBox/>

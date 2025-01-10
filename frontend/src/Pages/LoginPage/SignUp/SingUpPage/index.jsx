@@ -1,10 +1,10 @@
 import LoginLeftBox from "../../Login/LoginLeftPart/LoginLeft";
-import { LoginPageStyled } from "../../Login/style/Login";
+import {LoginPageStyled} from "../../Login/style/Login";
 import SignUpRightBox from "./SingUpRightBox";
 
-export default function SignUp (){
+export default function SignUp() {
 
-    return(
+    return (
         <LoginPageStyled>
             <LoginLeftBox/>
             <SignUpRightBox/>

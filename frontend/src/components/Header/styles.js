@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 
-
-export const MainHeader = styled.header `
+export const MainHeader = styled.header`
 display: flex;
 max-width:100vw;
 height: 3rem;
@@ -11,7 +10,7 @@ flex-direction: row;
 
 `
 
-export const LeftContainer = styled.div `
+export const LeftContainer = styled.div`
 display: flex;
 flex-grow: 1;
 height: 100%;
@@ -32,7 +31,7 @@ button {
 
 `
 
-export const LogoDiv = styled.div `
+export const LogoDiv = styled.div`
 
 display: flex;
 justify-content: space-around;
@@ -46,7 +45,7 @@ font-size: 1.1rem;
 
 `
 
-export const NavBar = styled.nav `
+export const NavBar = styled.nav`
 
 width: 90%;
 display: flex;
@@ -69,7 +68,7 @@ a{
 
 `
 
-export const RightContainer = styled.div `
+export const RightContainer = styled.div`
 display: flex;
 width: 20%;
 justify-content: end;

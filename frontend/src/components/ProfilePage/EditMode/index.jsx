@@ -1,13 +1,12 @@
 // ---------- IMPORTS ----------
 import styled from "styled-components";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useCardFlip } from "../CardFlipProvider";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData, updateUserData } from "../../../store/slice/tiaraslice";
-import { useNavigate } from "react-router-dom";
-import { api } from "../../../axios/axios";
-import { logout } from "../../../store/slice/user";
+import {useEffect, useState} from "react";
+import {useCardFlip} from "../CardFlipProvider";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUserData, updateUserData} from "../../../store/slice/tiaraslice";
+import {useNavigate} from "react-router-dom";
+import {api} from "../../../axios/axios";
+import {logout} from "../../../store/slice/user";
 
 const Wrapper = styled.section`
     width: 100%;
@@ -94,6 +93,7 @@ const LeftDiv = styled.div`
             box-shadow: 0 10px 20px 0px #0000000d;
             transform: translateY(4px);
         }
+
         cursor: pointer;
     }
 `;
@@ -137,6 +137,7 @@ export const PrimButton = styled.button`
     color: #ffffff;
     font-size: 10px;
     font-weight: 400;
+
     &:hover {
         box-shadow: 0 10px 20px 0px #0000000d;
     }
@@ -156,6 +157,7 @@ export const SecButton = styled.button`
     height: 40px;
     font-size: 10px;
     font-weight: 400;
+
     &:hover {
         box-shadow: 0 10px 20px 0px #0000000d;
     }
@@ -239,6 +241,7 @@ const AddThings = styled.div`
             max-width: 100%;
             overflow: hidden;
         }
+
         .tag-text {
             margin-right: 8px;
             overflow: hidden;
@@ -262,7 +265,7 @@ const AddThings = styled.div`
 // ---------- COMPONENT ----------
 
 export default function EditProfile() {
-    const { flipCard } = useCardFlip();
+    const {flipCard} = useCardFlip();
 
     // const GrowingInput = () => {
     //     const [aboutInput, setAboutInput] = useState("");
@@ -319,8 +322,8 @@ export default function EditProfile() {
     }, [user]);
 
     const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setLocalUser((prev) => ({ ...prev, [name]: value }));
+        const {name, value} = e.target;
+        setLocalUser((prev) => ({...prev, [name]: value}));
     };
 
     // ----------------------------------------
@@ -387,24 +390,25 @@ export default function EditProfile() {
 
 
     // delete ACcount button
-    const navigate=useNavigate();
-    const handleDeleteAccount = async (e)=>{
+    const navigate = useNavigate();
+    const handleDeleteAccount = async (e) => {
         const token = localStorage.getItem("accessToken")
         console.log(token);
-        
+
         try {
             const config = {
                 headers: {
-                  Authorization: `Bearer ${token}`,
-                },}
-            const res = await api.delete("/users/me/",config);
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+            const res = await api.delete("/users/me/", config);
             console.log("bbbbbb");
             dispatch(logout());
             navigate("/login");
         } catch (error) {
             console.log("aaaa");
         }
-        
+
 
     }
     return (
@@ -412,7 +416,7 @@ export default function EditProfile() {
             <EditProfileCard>
                 <LeftDiv>
                     <div className="avatar">
-                        <img id="avatarPicture" src={localUser.avatar} />
+                        <img id="avatarPicture" src={localUser.avatar}/>
                         <SecButton onClick={handleClickImageButton}>
                             <label
                                 htmlFor="fileInput"
@@ -436,7 +440,7 @@ export default function EditProfile() {
                                             htmlFor="fileInput"
                                             className="fileInputLabel"
                                         >
-                                            <input type="file" id="fileInput" />
+                                            <input type="file" id="fileInput"/>
                                             {"Upload"}
                                         </label>
                                     </div>
@@ -449,7 +453,7 @@ export default function EditProfile() {
                     </div>
 
                     <div id="buttons">
-                        <SecButton onClick={(e)=>handleDeleteAccount(e)}>DELETE ACCOUNT</SecButton>
+                        <SecButton onClick={(e) => handleDeleteAccount(e)}>DELETE ACCOUNT</SecButton>
                         <PrimButton
                             onClick={() => {
                                 flipCard();
@@ -462,7 +466,7 @@ export default function EditProfile() {
                 </LeftDiv>
                 <LabelEdit>
                     First Name
-                    <br />
+                    <br/>
                     <InputEdit
                         name="first_name"
                         value={localUser.first_name}
@@ -472,7 +476,7 @@ export default function EditProfile() {
                 </LabelEdit>
                 <LabelEdit>
                     Last Name
-                    <br />
+                    <br/>
                     <InputEdit
                         name="last_name"
                         value={localUser.last_name}
@@ -482,7 +486,7 @@ export default function EditProfile() {
                 </LabelEdit>
                 <LabelEdit>
                     Email
-                    <br />
+                    <br/>
                     <InputEdit
                         name="email"
                         value={localUser.email}
@@ -492,7 +496,7 @@ export default function EditProfile() {
                 </LabelEdit>
                 <LabelEdit>
                     Username
-                    <br />
+                    <br/>
                     <InputEdit
                         name="username"
                         value={localUser.username}
@@ -502,7 +506,7 @@ export default function EditProfile() {
                 </LabelEdit>
                 <LabelEdit>
                     Location
-                    <br />
+                    <br/>
                     <InputEdit
                         name="location"
                         value={localUser.location}
@@ -512,7 +516,7 @@ export default function EditProfile() {
                 </LabelEdit>
                 <LabelEdit>
                     Phone
-                    <br />
+                    <br/>
                     <InputEdit
                         name="phone_number"
                         value={localUser.phone_number}
@@ -522,7 +526,7 @@ export default function EditProfile() {
                 </LabelEdit>
                 <LabelEdit>
                     About
-                    <br />
+                    <br/>
                     <InputEdit
                         name="about_me"
                         value={localUser.about_me}
@@ -532,7 +536,7 @@ export default function EditProfile() {
                 </LabelEdit>
                 <LabelEdit>
                     Password
-                    <br />
+                    <br/>
                     <InputEdit
                         type="password"
                         name="password"

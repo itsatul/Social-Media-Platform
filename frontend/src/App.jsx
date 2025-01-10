@@ -12,51 +12,51 @@ customization. Just swap out the color variable names in the prefix groups.
 import './App.css'
 
 import Router from './Routes'
-import  Header  from './components/Header/Header'
-import NavBar from './components/NavBar/NavBar'
-import Main from './components/Main/Main'
-import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import { api } from './config'
-import { loadUser, login, logout } from './store/slice/user'
+import {useDispatch, useSelector} from 'react-redux'
+import {useEffect} from 'react'
+import {api} from './config'
+import {login, logout} from './store/slice/user'
+
 // --------------------------------- MAIN FUNCTION -------------------------------- //
 function App() {
-  const dispatch = useDispatch();
-  const accessToken = useSelector((state) => state.user.accessToken);
-  const Details = useSelector(state=>state.user.Details)
-  
-  useEffect(() => { 
-    // console.log("calling the token ...");
-    const localToken = localStorage.getItem("accessToken");
-    // console.error(localToken);
-    if (localToken) {
-      async function ValidateToken(token) {
-        // console.log("Token 1 step");
-        try {
-          const res = await api.post("auth/token/verify/", {
-            token: token,
-          });
-          // console.log("Token 2step", res);
-          dispatch(login(token));
-          // console.error(Details);
+    const dispatch = useDispatch();
+    const accessToken = useSelector((state) => state.user.accessToken);
+    const Details = useSelector(state => state.user.Details)
 
-        } catch (error) {
-          dispatch(logout());
+    useEffect(() => {
+        // console.log("calling the token ...");
+        const localToken = localStorage.getItem("accessToken");
+        // console.error(localToken);
+        if (localToken) {
+            async function ValidateToken(token) {
+                // console.log("Token 1 step");
+                try {
+                    const res = await api.post("auth/token/verify/", {
+                        token: token,
+                    });
+                    // console.log("Token 2step", res);
+                    dispatch(login(token));
+                    // console.error(Details);
+
+                } catch (error) {
+                    dispatch(logout());
+                }
+            }
+
+            ValidateToken(localToken);
+        } else {
+            console.log("0 tokens");
+            dispatch(logout());
         }
-      }
-      ValidateToken(localToken);
-    } else {
-      console.log("0 tokens");
-      dispatch(logout());
-    }
-  }, []);
+    }, []);
 
 //-------------RETURN-------------//
-if (accessToken === undefined) {
-  return <>Loading.....</>;
-} else {
-  return <Router/>;
+    if (accessToken === undefined) {
+        return <>Loading.....</>;
+    } else {
+        return <Router/>;
+    }
 }
-}
+
 // --------------------------------- EXPORTS -------------------------------- //
 export default App

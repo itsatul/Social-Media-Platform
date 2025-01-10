@@ -4,29 +4,24 @@ import FindFriends from "../../assets/svgs/icon-friends.svg";
 import NotificationBell from "../../assets/svgs/notification_bell.svg";
 import Avatar from "../../assets/images/users/jennifer.png";
 import MenuIcon from "../../assets/svgs/menu.svg";
-import {
-    MainHeader,
-    LeftContainer,
-    LogoDiv,
-    NavBar,
-    RightContainer,
-} from "./styles";
-import { NavLink, useNavigate } from "react-router-dom";
+import {LeftContainer, LogoDiv, MainHeader, NavBar, RightContainer,} from "./styles";
+import {NavLink, useNavigate} from "react-router-dom";
 
 import "./Headar.css";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { logout } from "../../store/slice/user";
-import FriendCard from "../Friendcard/FriendCard";
+import {useState} from "react";
+import {useDispatch} from "react-redux";
+import {logout} from "../../store/slice/user";
 import NotificationCard from "../NotificationCard/NotificationCard";
 
 export default function Header() {
     const [showNotification, setShowNotifivation] = useState(false);
     const [display, setDisplay] = useState(false);
     const navigate = useNavigate();
+
     function displayLogoutButton() {
         setDisplay(!display);
     }
+
     const dispatch = useDispatch();
     const handlelogout = () => {
         dispatch(logout());
@@ -42,7 +37,7 @@ export default function Header() {
             <MainHeader>
                 <LeftContainer>
                     <LogoDiv>
-                        <img src={Logo} alt="Logo" />
+                        <img src={Logo} alt="Logo"/>
                         <button className="motionButton">Motion</button>
                     </LogoDiv>
 
@@ -55,7 +50,7 @@ export default function Header() {
                             <p>Posts</p>
                         </NavLink>
                         <NavLink className="Naviess" to="/friends">
-                            <img src={FindFriends} alt="Find-Friends" />
+                            <img src={FindFriends} alt="Find-Friends"/>
                             <p>Find friends</p>
                         </NavLink>
                     </NavBar>
@@ -75,7 +70,7 @@ export default function Header() {
                     {display ? (
                         <div className="aaa">
                             <div>
-                                <img src={NotificationBell} alt="" />
+                                <img src={NotificationBell} alt=""/>
                                 <button
                                     onClick={() => handleProfileButton()}
                                     className="abb"
@@ -84,7 +79,7 @@ export default function Header() {
                                 </button>
                             </div>
                             <div>
-                                <img src={NotificationBell} alt="" />
+                                <img src={NotificationBell} alt=""/>
                                 <button onClick={() => handlelogout()}>
                                     Logout
                                 </button>
@@ -92,10 +87,10 @@ export default function Header() {
                         </div>
                     ) : null}
 
-                    <img src={MenuIcon} alt="menu-icon" />
+                    <img src={MenuIcon} alt="menu-icon"/>
                 </RightContainer>
             </MainHeader>
-            {showNotification && <NotificationCard />}
+            {showNotification && <NotificationCard/>}
         </>
     );
 }

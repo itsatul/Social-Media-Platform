@@ -1,7 +1,5 @@
-import { Outlet } from "react-router-dom";
+import {Outlet} from "react-router-dom";
 import Header from "../components/Header/Header";
-import NavBar from "../components/NavBar/NavBar";
-import { Main } from "../components/Main/LeftContainer/styles";
 import styled from "styled-components";
 
 export default function HeaderLayout() {
@@ -10,11 +8,11 @@ export default function HeaderLayout() {
     `
     return (
         <>
-                <Header />
-                <Maindivstyled>
-                <Outlet />
-                </Maindivstyled>
-                
+            <Header/>
+            <Maindivstyled>
+                <Outlet/>
+            </Maindivstyled>
+
 
         </>
     );

@@ -1,10 +1,10 @@
-from django.shortcuts import render
 from django.core.mail import send_mail
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
 from registration.models import Registration
+from rest_framework import status
 from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 
 # Create your views here.
 

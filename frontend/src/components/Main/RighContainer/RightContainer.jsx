@@ -1,12 +1,11 @@
-import { MainRightContainer } from "./styles"
+import {MainRightContainer} from "./styles"
 
 
-
-export default function RightContainer () {
+export default function RightContainer() {
     return (
         <>
-       <MainRightContainer>
-       </MainRightContainer>
+            <MainRightContainer>
+            </MainRightContainer>
         </>
     )
 }

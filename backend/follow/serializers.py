@@ -1,5 +1,5 @@
-from rest_framework import serializers
 from follow.models import Follow
+from rest_framework import serializers
 
 
 class FollowSerializer(serializers.ModelSerializer):
@@ -33,6 +33,7 @@ class FollowerSerializer(serializers.ModelSerializer):
             'id': obj.follower.id,
             'username': obj.follower.username
         }
+
 
 class FollowingSerializer(serializers.ModelSerializer):
     following = serializers.SerializerMethodField()

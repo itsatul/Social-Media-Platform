@@ -1,20 +1,15 @@
-import { useDispatch, useSelector } from "react-redux";
+import {useDispatch} from "react-redux";
 import styled from "styled-components";
-import { LoginrightBoxStyled } from "../../../Login/style/RightBox";
-import SignUpCodeSentRightBox from "../../CodeSignUpPage/CodeSEntBox/BotcodeSentBox";
+import {LoginrightBoxStyled} from "../../../Login/style/RightBox";
 import BotSignUpVerificationRightBox from "./BotPart";
-import MidPartSignUpRightBox from "../../SingUpPage/SingUpRightBox/MIdPart";
-import MidPartResetPassowordRightBoxAfter from "../../../ForgetPasswordPage/ResetPasswordPage/ResetPassword/MidPart";
-import { ForgetPasswordFormStyled } from "../../../ForgetPasswordPage/style";
-import TopPartLoginRightBox from "../../../Login/LoginRightPart/Components/TopPart";
-import BotPartResetPassowordRightBox from "../../../ForgetPasswordPage/ForgetPasswordPage/passwordBotPart";
+import {ForgetPasswordFormStyled} from "../../../ForgetPasswordPage/style";
 import MidPartVerificationRightBox from "./MIdPart";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { api } from "../../../../../config";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
+import {api} from "../../../../../config";
 
 export default function SignUPVerificationRightBox() {
-  const CodeSentDivStyled = styled.div`
+    const CodeSentDivStyled = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -40,61 +35,61 @@ export default function SignUPVerificationRightBox() {
     }
   `;
 
-  const [loginError, setLoginError] = useState("");
-  const [UserName, setUsername] = useState("");
-  const [code, setCode] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordRepeat, setPasswordRepeat] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [Email,setEmail]=useState("");
+    const [loginError, setLoginError] = useState("");
+    const [UserName, setUsername] = useState("");
+    const [code, setCode] = useState("");
+    const [password, setPassword] = useState("");
+    const [passwordRepeat, setPasswordRepeat] = useState("");
+    const [firstName, setFirstName] = useState("");
+    const [lastName, setLastName] = useState("");
+    const [Email, setEmail] = useState("");
 
 //   const email = useSelector((state) => state.user.email);
 //   console.log(email);
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    setLoginError("");
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        setLoginError("");
 
-    try {
-      const res = await api.patch("/auth/registration/validation/", {
-        email: Email,
-        username: UserName,
-        code: code,
-        password: password,
-        password_repeat: passwordRepeat,
-        first_name: firstName,
-        last_name: lastName,
-      });
-    //   dispatch(AddEmail(email));
-    //   console.log(Addedemail);
-      navigate("/Login");
-    } catch (error) {
-      setLoginError("something went wrong");
-      console.log('bbbbb');
-      console.log(loginError);
-    }
-  };
+        try {
+            const res = await api.patch("/auth/registration/validation/", {
+                email: Email,
+                username: UserName,
+                code: code,
+                password: password,
+                password_repeat: passwordRepeat,
+                first_name: firstName,
+                last_name: lastName,
+            });
+            //   dispatch(AddEmail(email));
+            //   console.log(Addedemail);
+            navigate("/Login");
+        } catch (error) {
+            setLoginError("something went wrong");
+            console.log('bbbbb');
+            console.log(loginError);
+        }
+    };
 
-  return (
-    <LoginrightBoxStyled>
-      <ForgetPasswordFormStyled onSubmit={(e) => handleRegister(e)}>
-        <MidPartVerificationRightBox
-          
-          setEmail={(e)=>setEmail(e)}
-          setUsername={(e) => setUsername(e)}
-          setCode={(e) => setCode(e)}
-          setPassword={(e) => setPassword(e)}
-          setPasswordRepeat={(e) => setPasswordRepeat(e)}
-          setFirstName={(e) => setFirstName(e)}
-          setLastName={(e) => setLastName(e)}
+    return (
+        <LoginrightBoxStyled>
+            <ForgetPasswordFormStyled onSubmit={(e) => handleRegister(e)}>
+                <MidPartVerificationRightBox
 
-        />
-        <BotSignUpVerificationRightBox />
-      </ForgetPasswordFormStyled>
-    </LoginrightBoxStyled>
-  );
+                    setEmail={(e) => setEmail(e)}
+                    setUsername={(e) => setUsername(e)}
+                    setCode={(e) => setCode(e)}
+                    setPassword={(e) => setPassword(e)}
+                    setPasswordRepeat={(e) => setPasswordRepeat(e)}
+                    setFirstName={(e) => setFirstName(e)}
+                    setLastName={(e) => setLastName(e)}
+
+                />
+                <BotSignUpVerificationRightBox/>
+            </ForgetPasswordFormStyled>
+        </LoginrightBoxStyled>
+    );
 }

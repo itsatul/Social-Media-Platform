@@ -1,12 +1,11 @@
 import LoginLeftBox from "../../Login/LoginLeftPart/LoginLeft";
-import { LoginPageStyled } from "../../Login/style/Login";
-import ForgetPasswordRightBox from "../ForgetPasswordPage";
+import {LoginPageStyled} from "../../Login/style/Login";
 import ResetPasswordRightBox from "./ResetPassword";
 
 
-export default function ResetPassoword (){
+export default function ResetPassoword() {
 
-    return(
+    return (
         <LoginPageStyled>
             <LoginLeftBox/>
             <ResetPasswordRightBox/>

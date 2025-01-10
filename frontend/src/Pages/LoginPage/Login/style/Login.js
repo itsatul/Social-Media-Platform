@@ -1,8 +1,7 @@
 import styled from "styled-components";
 
 
-
-export const LoginPageStyled= styled.section`
+export const LoginPageStyled = styled.section`
 display: flex;
 height: 100vh;
 width: 100vw;
@@ -12,7 +11,7 @@ align-items: center;
 `
 
 
- export const BigDivStyled = styled.div`
+export const BigDivStyled = styled.div`
 display: flex;
 justify-content: center;
 gap: 3rem;

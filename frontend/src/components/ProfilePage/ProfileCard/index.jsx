@@ -1,10 +1,9 @@
 // ---------- IMPORTS ----------
 import styled from "styled-components";
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useCardFlip } from "../CardFlipProvider";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchUserData } from "../../../store/slice/tiaraslice";
+import {useEffect} from "react";
+import {useCardFlip} from "../CardFlipProvider";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchUserData} from "../../../store/slice/tiaraslice";
 
 const Wrapper = styled.section`
     width: 100%;
@@ -92,6 +91,7 @@ const EditProfileButton = styled.button`
     width: 158px;
     height: 40px;
     transition-duration: 300ms;
+
     &:hover {
         box-shadow: 0 10px 20px 0px #0000000d;
     }
@@ -167,6 +167,7 @@ const InterestsDiv = styled.div`
         padding-left: 1.5rem;
         padding-top: 1.5rem;
     }
+
     #interestTags {
         padding-left: 1.5rem;
         padding-top: 1.5rem;
@@ -184,6 +185,7 @@ const InterestsDiv = styled.div`
             max-width: 100%;
             overflow: hidden;
         }
+
         .tag-text {
             overflow: hidden;
         }
@@ -212,7 +214,7 @@ const CounterDiv = styled.div`
 // ---------- COMPONENT ----------
 
 export default function ProfileCard() {
-    const { flipCard } = useCardFlip();
+    const {flipCard} = useCardFlip();
 
     // --- fetching data via store ---
 
@@ -267,7 +269,7 @@ export default function ProfileCard() {
             <ProfileCardDiv>
                 <ProfileDataDiv>
                     <div id="avatar">
-                        <img className="avatarPicture" src={user.avatar} />
+                        <img className="avatarPicture" src={user.avatar}/>
                     </div>
                     <div className="details">
                         <p id="name">

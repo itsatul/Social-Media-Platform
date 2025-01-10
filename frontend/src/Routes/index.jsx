@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
 import Friends from "../Pages/Friends/Friends";
 import HeaderLayout from "../Layout";
 import ForgotPassoword from "../Pages/LoginPage/ForgetPasswordPage/ForgetPassword";
@@ -17,32 +17,32 @@ export default function Router() {
         <BrowserRouter>
             <Routes>
                 {/* Login Page */}
-                <Route path="/Login" element={<LoginPage />} />
+                <Route path="/Login" element={<LoginPage/>}/>
                 {/* REset Password Pages */}
-                <Route path="/ForgetPassword" element={<ForgotPassoword />} />
+                <Route path="/ForgetPassword" element={<ForgotPassoword/>}/>
                 <Route
                     path="/ForgetPasswordCode"
-                    element={<ForgotPassowordSentCodePage />}
+                    element={<ForgotPassowordSentCodePage/>}
                 />
                 <Route
                     path="/ForgetPasswordReset"
-                    element={<ResetPassoword />}
+                    element={<ResetPassoword/>}
                 />
 
                 {/* Sing UP pages */}
-                <Route path="/SignUp" element={<SignUp />} />
-                <Route path="/SignUpCode" element={<SignUpSentCodePage />} />
+                <Route path="/SignUp" element={<SignUp/>}/>
+                <Route path="/SignUpCode" element={<SignUpSentCodePage/>}/>
                 <Route
                     path="/SignUpVerification"
-                    element={<SignUpVerificaitonPage />}
+                    element={<SignUpVerificaitonPage/>}
                 />
 
-                <Route element={<HeaderLayout />}>
-                    <Route element={<ProtectedElement />}>
-                        <Route path="/Main" element={<Main />} />
-                        <Route path="/friends" element={<Friends />} />
-                        <Route path="/profile" element={<ProfilePage />} />
-                        <Route path="*" element={<h1>NO Page</h1>} />
+                <Route element={<HeaderLayout/>}>
+                    <Route element={<ProtectedElement/>}>
+                        <Route path="/Main" element={<Main/>}/>
+                        <Route path="/friends" element={<Friends/>}/>
+                        <Route path="/profile" element={<ProfilePage/>}/>
+                        <Route path="*" element={<h1>NO Page</h1>}/>
                     </Route>
                 </Route>
             </Routes>
