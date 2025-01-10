@@ -23,6 +23,7 @@ from rest_framework_simplejwt import views as jwt_views
 from project import settings
 
 urlpatterns = [
+    # TIARAS
     path('backend/admin/', admin.site.urls),
 
     path('backend/api/', include([
@@ -41,6 +42,10 @@ urlpatterns = [
 
         path('social/posts/', include('post.urls')),
     ])),
+
+    # JONS
+    path('backend/comment/', include('comment.urls')),
+    path('backend/friend_request/', include('friend_request.urls')),
 ]
 
 if settings.DEBUG:
