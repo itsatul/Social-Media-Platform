@@ -1,4 +1,5 @@
 from django.urls import path
+
 from .views import ValidateRegistration, validate_email
 
 urlpatterns = [

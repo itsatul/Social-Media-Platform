@@ -6,7 +6,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -21,8 +20,10 @@ class Migration(migrations.Migration):
                 ('text_content', models.TextField()),
                 ('media_content', models.TextField(blank=True, null=True)),
                 ('post_created', models.DateTimeField(auto_now_add=True)),
-                ('shared_post', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL, related_name='posts', to='post.post')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='posts', to=settings.AUTH_USER_MODEL)),
+                ('shared_post', models.ForeignKey(blank=True, null=True, on_delete=django.db.models.deletion.SET_NULL,
+                                                  related_name='posts', to='post.post')),
+                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='posts',
+                                           to=settings.AUTH_USER_MODEL)),
             ],
         ),
     ]
