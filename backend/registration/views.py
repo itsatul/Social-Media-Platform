@@ -19,7 +19,7 @@ class ValidateRegistration(APIView):
         send_mail(
             'Welcome to Motion',
             f'Almost done. Please finish your registration with the validation code ${validation_code}.',
-             'hello.motion.0125@gmail.com',
+            'hello.motion.0125@gmail.com',
             [user.email],
             fail_silently=False,
         )
