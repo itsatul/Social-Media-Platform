@@ -18,10 +18,9 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-
+from rest_framework_simplejwt import views as jwt_views
 
 from project import settings
-from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
     # TIARAS
@@ -45,7 +44,7 @@ urlpatterns = [
     ])),
 
     # JONS
-    path('backend/comment/', include('comment.urls') ),
+    path('backend/comment/', include('comment.urls')),
     path('backend/friend_request/', include('friend_request.urls')),
 ]
 
