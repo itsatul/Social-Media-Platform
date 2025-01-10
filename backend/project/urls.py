@@ -17,11 +17,12 @@ Including another URLconf
 
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from project import settings
 
 urlpatterns = [
-    path("backend/admin/", admin.site.urls),
+    path("backend/api/admin/", admin.site.urls),
+    path("backend/api/social/posts/",include('post.urls'))
 ]
 
 if settings.DEBUG:
