@@ -11,4 +11,4 @@ dependencies:
       - drf-yasg==1.21.8
       - flake8
       - gunicorn
-      - Pillow
+      - pillow

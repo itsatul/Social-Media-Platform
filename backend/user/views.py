@@ -2,6 +2,7 @@
 from django.contrib.auth import get_user_model
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.permissions import AllowAny, SAFE_METHODS, IsAdminUser, IsAuthenticated
+
 from user.serializers import UserSerializer
 
 User = get_user_model()

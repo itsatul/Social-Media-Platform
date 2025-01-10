@@ -18,8 +18,9 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
-from project import settings
 from rest_framework_simplejwt import views as jwt_views
+
+from project import settings
 
 urlpatterns = [
     path('backend/admin/', admin.site.urls),
@@ -37,6 +38,8 @@ urlpatterns = [
         path('users/', include('user.urls')),
 
         path('social/', include('follow.urls')),
+
+        path('social/posts/', include('post.urls')),
     ])),
 ]
 
