@@ -43,6 +43,8 @@ INSTALLED_APPS = [
 
     # Own apps
     "user",
+    "comment",
+    "friend_request",
 
     # 3rd party
     'rest_framework',

@@ -17,11 +17,16 @@ Including another URLconf
 
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+
+from comment.models import Comment
 from project import settings
 
 urlpatterns = [
     path("backend/admin/", admin.site.urls),
+    path('backend/comment/', include('comment.urls') ),
+    path('backend/friend_request/', include('friend_request.urls')),
 ]
 
 if settings.DEBUG:
