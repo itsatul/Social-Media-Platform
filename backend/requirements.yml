@@ -1,4 +1,4 @@
-name:
+name: motion-project
 
 dependencies:
   - python=3.12.5
@@ -11,4 +11,4 @@ dependencies:
       - drf-yasg==1.21.8
       - flake8
       - gunicorn
-      - Pillow
+      - pillow
