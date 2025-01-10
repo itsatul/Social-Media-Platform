@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.db.models import Q
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
 
@@ -7,14 +8,24 @@ from post.serializers import PostSerializer
 
 User = get_user_model()
 
+
 # Create your views here.
 class ListCreatePostView(ListCreateAPIView):
     def get_queryset(self):
         user_id = self.kwargs.get('pk')
+        search_string = self.request.GET.get('search')
+
+        queryset = Post.objects.all()
+
         if user_id is not None:
-            return Post.objects.filter(user__id=user_id)
-        else:
-            return Post.objects.all()
+            queryset = queryset.filter(user__id=user_id)
+
+        if search_string:
+            queryset = queryset.filter(
+                Q(text_content__icontains=search_string)
+            )
+
+        return queryset.order_by('-post_created')
 
     serializer_class = PostSerializer
 
@@ -28,6 +39,7 @@ class ListCreatePostView(ListCreateAPIView):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+
 
 class RetrieveUpdateDestroyPostView(RetrieveUpdateDestroyAPIView):
     queryset = Post.objects.all()
