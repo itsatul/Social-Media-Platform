@@ -1,12 +1,13 @@
 from django.contrib.auth import get_user_model
 from django.shortcuts import get_object_or_404
-from follow.models import Follow
-from follow.serializers import FollowerSerializer, FollowingSerializer
 from rest_framework import status
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
+
+from follow.models import Follow
+from follow.serializers import FollowerSerializer, FollowingSerializer
 
 User = get_user_model()
 

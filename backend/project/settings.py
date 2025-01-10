@@ -42,7 +42,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     # Own apps
-    'user',
+    "user",
+    "post",
+    "like",
     'follow',
     'registration',
     "comment",
