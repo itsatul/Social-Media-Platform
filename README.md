@@ -56,7 +56,7 @@ This project is containerized using **Docker**, served with **Nginx** and **Guni
 
 ### Prerequisites
 
-- Docker & Docker Compose
+- Docker
 - Git
 - Node.js & npm (for local frontend development)
 
