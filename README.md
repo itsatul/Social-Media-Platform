@@ -1,4 +1,3 @@
-
 # 🌐 SocialMedia App
 
 A full-stack social media application built using **React** (frontend) and **Django + Django REST Framework** (backend). It includes features like user authentication, profile management, posts, likes, comments, following, and friend requests.
@@ -10,8 +9,6 @@ This project is containerized using **Docker**, served with **Nginx** and **Guni
 ## 🖼️ Screenshot
 
 ![App Screenshot](./screenshot.png)
-
-> Replace `screenshot.png` with your actual image filename in the project root.
 
 ---
 
