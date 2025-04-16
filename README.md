@@ -1,8 +1,17 @@
+
 # 🌐 SocialMedia App
 
 A full-stack social media application built using **React** (frontend) and **Django + Django REST Framework** (backend). It includes features like user authentication, profile management, posts, likes, comments, following, and friend requests.
 
 This project is containerized using **Docker**, served with **Nginx** and **Gunicorn**, and was deployed via **GitLab CI/CD** on DigitalOcean.
+
+---
+
+## 🖼️ Screenshot
+
+![App Screenshot](./screenshot.png)
+
+> Replace `screenshot.png` with your actual image filename in the project root.
 
 ---
 
@@ -52,6 +61,7 @@ This project is containerized using **Docker**, served with **Nginx** and **Guni
 
 - Docker & Docker Compose
 - Git
+- Node.js & npm (for local frontend development)
 
 ### 1. Clone the Repository
 
@@ -62,9 +72,9 @@ cd Social-Media-Platform
 
 ### 2. Environment Variables
 
-Adopt `.env` file in the project root
+Create a `.env` file in the project root with appropriate Django and database configuration.
 
-### 3. Start the Project
+### 3. Run with Docker
 
 ```bash
 docker-compose up --build
@@ -82,26 +92,28 @@ This will spin up:
 In a new terminal:
 
 ```bash
-docker-compose exec backend python manage.py migrate
-docker-compose exec backend python manage.py createsuperuser
+
+docker exec -it container sh -c "python manage.py migrate"
+docker exec -it container sh -c "python manage.py createsuperuser"
+
+```
+
+### 🧪 Run Frontend Locally (without Docker)
+
+For frontend-only development:
+
+```bash
+cd frontend
+npm install
+npm run dev
 ```
 
 ---
 
 ## 🌍 Access the App
 
-- Frontend: [http://localhost](http://localhost)
-- Admin Panel: [http://localhost/admin](http://localhost/admin)
-
----
-
----
-
-## 🧪 Running Tests
-
-```bash
-docker-compose exec backend python manage.py test
-```
+- Frontend: [http://localhost:5173](http://localhost:5173)
+- Admin Panel: [http://localhost:5173/admin](http://localhost:5173/admin)
 
 ---
 
@@ -111,7 +123,7 @@ This project includes a `.gitlab-ci.yml` file to automate:
 
 - Build & test steps
 - Docker image creation
-- Deployment to production (optional via SSH, Kubernetes, or server)
+- Deployment to production
 
 Update variables in GitLab > Settings > CI/CD to match your environment.
 
