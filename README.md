@@ -69,7 +69,7 @@ cd Social-Media-Platform
 
 ### 2. Environment Variables
 
-Create a `.env` file in the project root with appropriate Django and database configuration.
+Adopt a `.env` file in the project root with appropriate Django and database configuration.
 
 ### 3. Run with Docker
 
